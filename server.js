@@ -12,8 +12,6 @@ dotenv.config({ path: './config/config.env' });
 // Connect to MongoDB
 connectDB(); 
 
-const __dirname=path.resolve();
-
 // Initialize Express app
 const app = express();
 
@@ -29,12 +27,12 @@ app.use('/api/v1/inventory', require('./routes/inventoryRoutes'));
 app.use('/api/v1/analytics', require('./routes/analyticsRoutes'));
 app.use('/api/v1/admin', require('./routes/adminRoutes'));
 
-// Serve static files (if needed)
+// Serve static files
 app.use(express.static(path.join(__dirname, './client/build')));
 
-// Example route to serve static HTML file
-app.get('*', function (req, res) {
-    res.sendFile(path.join(__dirname, 'client','build','index.html'));
+// Catch-all route to serve static HTML file
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
 });
 
 const PORT = process.env.PORT || 8080;
