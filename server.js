@@ -17,7 +17,13 @@ const app = express();
 
 // Middleware
 app.use(express.json());
-app.use(cors()); // Enable CORS for all routes
+app.use(cors(
+    {
+        origin:[]
+    }
+
+
+)); // Enable CORS for all routes
 app.use(morgan('dev'));
 
 // Routes
@@ -27,13 +33,13 @@ app.use('/api/v1/inventory', require('./routes/inventoryRoutes'));
 app.use('/api/v1/analytics', require('./routes/analyticsRoutes'));
 app.use('/api/v1/admin', require('./routes/adminRoutes'));
 
-// Serve static files
-app.use(express.static(path.join(__dirname, './client/build')));
+// // Serve static files
+// app.use(express.static(path.join(__dirname, './client/build')));
 
-// Catch-all route to serve static HTML file
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
-});
+// // Catch-all route to serve static HTML file
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+// });
 
 const PORT = process.env.PORT || 8080;
 

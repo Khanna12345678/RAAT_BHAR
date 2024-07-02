@@ -13,7 +13,7 @@
 
 // export default API;
 import axios from 'axios';
- const url="http://localhost:8080/api/v1";
+ const url=`${window.location.origin}/api/v1`;
 const API = axios.create({ baseURL: url});
 
 API.interceptors.request.use((req) => {
