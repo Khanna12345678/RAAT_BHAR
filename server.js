@@ -10,7 +10,9 @@ const connectDB = require('./config/db'); // Assuming this connects to MongoDB
 dotenv.config({ path: './config/config.env' });
 
 // Connect to MongoDB
-connectDB();
+connectDB(); 
+
+const __dirname=path.resolve();
 
 // Initialize Express app
 const app = express();
@@ -32,7 +34,7 @@ app.use(express.static(path.join(__dirname, './client/build')));
 
 // Example route to serve static HTML file
 app.get('*', function (req, res) {
-    res.sendFile(path.join(__dirname, './client/build/index.html'));
+    res.sendFile(path.join(__dirname, 'client','build','index.html'));
 });
 
 const PORT = process.env.PORT || 8080;
