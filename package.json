@@ -9,7 +9,7 @@
     "server": "nodemon server.js",
     "client": "npm start --prefix ./client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "build":"npm install && npm install --prefix client && npm run build --prefix client"
+    "build": "npm install && npm install --prefix client && npm run build --prefix client"
   },
   "keywords": [
     "Mern",
@@ -32,7 +32,8 @@
     "moment": "^2.29.4",
     "mongoose": "^7.3.1",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.22"
+    "nodemon": "^2.0.22",
+    "path": "^0.12.7"
   },
   "engines": {
     "node": ">=14.20.1"
